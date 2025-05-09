@@ -1,19 +1,28 @@
 import React from "react";
 import { NavLink } from "react-router-dom";
+import { motion } from "motion/react"
 
 const Home = () => {
   return (
     <div className="min-h-screen w-screen bg-gradient-to-br from-blue-50 to-indigo-100 flex items-center justify-center px-6 py-20">
       <div className="max-w-4xl mx-auto text-center">
         <div className="mb-10 animate-fade-in">
-          <h1 className="text-5xl md:text-6xl font-bold text-gray-900 mb-6 leading-tight">
+          <motion.h1
+            key="header"
+            initial={{ x: 30, opacity: 0, rotateX: '90deg' }}
+            animate={{ x: 0, opacity: 1, rotateX: '0deg' }}
+            exit={{ x: -30, opacity: 0, rotateX: '-90deg' }}
+            whileTap={{ scale: 1.05 }}
+            transition={{ duration: 0.5 }}
+
+            className="text-5xl md:text-6xl font-bold text-gray-900 mb-6 leading-tight">
             Transform Your Images <br className="hidden md:block" />
             With <span className="text-blue-600">AI-Powered</span> Captions
-          </h1>
-          
+          </motion.h1>
+
           <p className="text-xl text-gray-600 mb-10 max-w-2xl mx-auto">
-            Our advanced BLIP model generates accurate, context-aware descriptions 
-            for your visuals in seconds. Perfect for content creators, marketers, 
+            Our advanced BLIP model generates accurate, context-aware descriptions
+            for your visuals in seconds. Perfect for content creators, marketers,
             and accessibility needs.
           </p>
         </div>

@@ -1,4 +1,5 @@
 import React from 'react';
+import { motion } from "motion/react"
 
 const About = () => {
   return (
@@ -24,7 +25,12 @@ const About = () => {
           </p>
         </div>
 
-        <div className="grid md:grid-cols-3 gap-8 mb-12">
+        <motion.div
+          initial={{ y: 30, opacity: 0 }}
+          whileInView={{ y: 0, opacity: 1 }}
+          viewport={{ once: false, amount: 0.3 }}
+          transition={{ duration: 0.5 }}
+          className="grid md:grid-cols-3 gap-8 mb-12 text-black">
           <div className="bg-white p-6 rounded-lg shadow-md">
             <div className="text-blue-600 mb-4">
               <svg className="w-10 h-10" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -60,9 +66,15 @@ const About = () => {
               We continuously improve our algorithms to deliver better results.
             </p>
           </div>
-        </div>
+        </motion.div>
 
-        <div className="bg-white shadow-lg rounded-lg p-8">
+        <motion.div
+          initial={{ y: 30, opacity: 0 }}
+          whileInView={{ y: 0, opacity: 1 }}
+          viewport={{ once: false, amount: 0.3 }}
+          transition={{ duration: 0.5 }}
+
+          className="bg-white shadow-lg rounded-lg p-8">
           <h2 className="text-2xl font-semibold text-gray-800 mb-6">Our Team</h2>
           <p className="text-gray-600 mb-6">
             We're a diverse group of AI specialists, linguists, and UX designers passionate about
@@ -73,7 +85,7 @@ const About = () => {
               Join Our Team
             </button>
           </div>
-        </div>
+        </motion.div>
       </div>
     </div>
   );
